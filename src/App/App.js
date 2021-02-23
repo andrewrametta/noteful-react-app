@@ -20,19 +20,17 @@ class App extends Component {
   componentDidMount() {
     Promise.all([
       fetch(`${config.API_ENDPOINT}/notes`, {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'content-type': 'application/json',
-          'Authorization': `Bearer ${config.API_KEY}`
-        }
+          "content-type": "application/json",
+        },
       }),
       fetch(`${config.API_ENDPOINT}/folders`, {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'content-type': 'application/json',
-          'Authorization': `Bearer ${config.API_KEY}`
-        }
-      })
+          "content-type": "application/json",
+        },
+      }),
       //fetch(`${config.API_ENDPOINT}/folders`),
     ])
       .then(([notesRes, foldersRes]) => {
